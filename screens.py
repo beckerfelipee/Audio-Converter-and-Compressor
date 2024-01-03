@@ -11,7 +11,7 @@ def clear():
 def header():
     clear()
     print("Created by Felipe Becker")
-    print("Git Repository: [botar o link dps]")
+    print("Git Repository: https://github.com/beckerfelipee/Audio-Converter-and-Compressor")
     print("\n=============================================")
     print("         Audio Converter and Compressor       ")
     print("=============================================\n")
