@@ -2,6 +2,13 @@
 
 This Python program is designed to convert and compress audio files. The program efficiently handles large batches of audio files, simplifying the process in a single execution. Input files should be located in the `Input Files` directory. Processed files will be stored in the `Output Files` directory. All these locations can be configured in the `config.py` file.
 
+## Execution
+
+To run the program, simply double click on `main.py` or execute the following command in the terminal:
+```bash
+python main.py
+```
+
 ## How it Works
 
 1. Navigate to the `Audio Files` folder.
@@ -11,13 +18,6 @@ This Python program is designed to convert and compress audio files. The program
 5. View the results in the `Output Files` folder.
 
 Simple like that.
-
-## Execution
-
-To run the program, simply double click on `main.py` or execute the following command in the terminal:
-```bash
-python main.py
-```
 
 ## Requirements
 
