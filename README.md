@@ -41,7 +41,8 @@ Tip: You can edit this file using a text editor if you don't have a dedicated ID
 
 ## LICENSE
 
-This program is covered by the MIT License, making it suitable for utility, educational, and non-commercial use. You are free to redistribute or build upon it, provided that proper credit is given. For more details, please refer to the [MIT License](https://opensource.org/license/mit/).
+This program is under the MIT License for utility, education, and non-commercial use. Feel free to redistribute or build upon it with proper credit. For details, refer to the [MIT License](https://opensource.org/licenses/MIT).
+
 
 
 ---
