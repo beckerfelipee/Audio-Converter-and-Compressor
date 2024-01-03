@@ -23,7 +23,7 @@ python main.py
 
 Ensure you have `Python 3` or a later version installed.
 
-`PyDub`: This dependency is used for audio manipulation.
+The `PyDub` lib is used for audio manipulation.
 
 ```bash
 pip install pydub
