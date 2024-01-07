@@ -27,5 +27,15 @@ while True:
     elif option == "help":
         screen.guide()
 
+    elif option == "clear_input" or option == "clear_output":
+        screen.clear()
+        if option.endswith("input"):
+            folder = i_f
+        else:
+            folder = o_f
+        print(f"You are about to delete all files in the folder: {folder}")
+        if fc.safety_ask() == "yes":
+            fc.clear_files(folder)
+
     elif option == "exit":
         break

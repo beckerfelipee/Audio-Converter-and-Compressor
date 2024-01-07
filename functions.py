@@ -1,11 +1,11 @@
 from config import rename_with_action, compress_sampling_rate as sampling_rate
 from pydub import AudioSegment
-from os import listdir
+from os import listdir, remove
 
 # Basic Functions
 
-def get_file_extension(file):
-    allowed_formats = [".wav", ".ogg", ".mp3"]
+def get_file_format(file):
+    allowed_formats = ["wav", "ogg", "mp3"]
 
     for i in allowed_formats:
         if file.endswith(i):
@@ -14,6 +14,24 @@ def get_file_extension(file):
     # If no matching extension is found, return None
     print(f"Cannot handle extension from: {file}")
     return None
+
+def safety_ask():
+    while True:
+        ask = input("\nAre you sure? Type [yes] or [no]: ")
+        if ask.lower() in "yes":
+            return "yes"
+        if ask.lower() in "no":
+            return "no"
+        else:
+            print("You did not type it correctly.")
+
+def clear_files(folder):
+    count = 0
+    for file in listdir(folder):
+        remove(folder + file)
+        count += 1
+    print(f"\n\n{count} files removed from: {folder}")
+    back = input("\nPress [Enter] to go back ")
 
 # Audio Manipulation
 
@@ -26,7 +44,7 @@ def convert_all_files(i_folder_path, o_folder_path, output_extension):
 
 def convert_audio(i_folder_path, input_file, o_folder_path, output_extension):
     input_path = i_folder_path + input_file
-    input_extension = get_file_extension(input_path)
+    input_extension = get_file_format(input_path)
     if not input_extension:
         return False  # Cant convert the file
 
@@ -36,7 +54,7 @@ def convert_audio(i_folder_path, input_file, o_folder_path, output_extension):
         new_path = o_folder_path + input_file.replace(input_extension, output_extension)
 
     to_convert = AudioSegment.from_file(input_path)
-    to_convert.export(new_path)
+    to_convert.export(new_path, format=output_extension)
     print(f"Converted file saved at: {new_path}")
 
     return True
@@ -54,14 +72,15 @@ def compress_all_files(i_folder_path, o_folder_path, output_extension):
 
 def compress_audio(i_folder_path, input_file, o_folder_path, output_extension):
     input_path = i_folder_path + input_file
-    input_extension = get_file_extension(input_path)
-
-    audio = AudioSegment.from_file(input_path)
+    input_extension = get_file_format(input_path)
 
     if rename_with_action:
         output_path = o_folder_path + "compressed-" + input_file.replace(input_extension, output_extension)
     else:
         output_path = o_folder_path + input_file.replace(input_extension, output_extension)
 
-    audio.export(output_path, parameters=["-ac", "2", "-ar", sampling_rate])
+    audio = AudioSegment.from_file(input_path)
+    audio.export(output_path, format=output_extension, parameters=["-ac", "2", "-ar", sampling_rate])
     print(f"Compressed file saved at: {output_path}")
+
+

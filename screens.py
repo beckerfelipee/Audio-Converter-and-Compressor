@@ -26,23 +26,26 @@ def ask_output_extension():
 
         choice = input("Enter an option (1-3): ")
         if choice == '1':
-            return '.wav'
+            return 'wav'
         elif choice == '2':
-            return '.mp3'
+            return 'mp3'
         elif choice == '3':
-            return '.ogg'
+            return 'ogg'
 
 def main_options():
     while True:
         header()
         print("Options:")
-        print("[ 1 ] Convert only")
+        print("[ 1 ] Convert")
         print("[ 2 ] Compress")
+        print("\nOther options:")
         print("[ 3 ] How it works?")
-        print("[ 4 ] Exit\n")
+        print("[ 4 ] Clear input files")
+        print("[ 5 ] Clear output files")
+        print("[ 6 ] Exit\n")
 
         # Get user input for option
-        user_choice = input("Enter an option (1-4): ")
+        user_choice = input("Enter an option (1-6): ")
 
         # Process user input
         if user_choice == '1':
@@ -52,7 +55,13 @@ def main_options():
         elif user_choice == '3':
             return "help"
         elif user_choice == '4':
+            return "clear_input"
+        elif user_choice == '5':
+            return "clear_output"
+        elif user_choice == '6':
             return "exit"
+
+# def clear_files(option):
 
 def guide():
     clear()
