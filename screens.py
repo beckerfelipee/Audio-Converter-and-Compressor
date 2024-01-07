@@ -61,8 +61,6 @@ def main_options():
         elif user_choice == '6':
             return "exit"
 
-# def clear_files(option):
-
 def guide():
     clear()
     print("- User Guide\n")
