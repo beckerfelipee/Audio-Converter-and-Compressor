@@ -1,4 +1,4 @@
-# Audio Converter and Compressor
+# Audio Converter and Compressor ⚙️
 
 This Python program is designed to convert and compress audio files. The program efficiently handles large batches of audio files, simplifying the process in a single execution. Input files should be located in the `Input Files` directory. Processed files will be stored in the `Output Files` directory. All these locations can be configured in the `config.py` file.
 
